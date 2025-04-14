@@ -1,6 +1,5 @@
 # Generating the updated Streamlit app code with multiple views in the sidebar and designation filter only in the Main Dashboard
 
-updated_code = '''
 import streamlit as st
 import pandas as pd
 import random
