@@ -123,9 +123,6 @@ elif view == "Chatbot":
     if question:
         response = sample_qna.get(question.lower(), "I'm still learning! Please try another question.")
         st.write(f"💬 {response}")
-'''
-
-
 
 # --- Footer ---
 st.markdown("Crafted with ❤️ by PersonaX")
