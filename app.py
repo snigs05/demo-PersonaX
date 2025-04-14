@@ -10,7 +10,6 @@ view = st.sidebar.radio("Choose View", ["Main Dashboard", "Consultant View", "Ma
 
 # ------------------ Dummy Data -------------------
 df.index = range(1, len(df) + 1)
-df.index.name = "S.No"
 st.dataframe(df)
 
 consultants = pd.DataFrame([
@@ -21,8 +20,8 @@ consultants = pd.DataFrame([
     {"Name": "Jane Smith", "Designation": "Consultant I", "Skills": "Cloud, Research", "Current Project": "", "Availability": "Available", "OKRs": "Upskill in GenAI", "L&D Plan": "GenAI + Cloud", "Projects": "AWS Pitch", "Status": "Available", "Manager Feedback": "Quick learner", "Client Feedback": "N/A", "Suggestions": "Cloud AI Bootcamp"},
 ])
 df.index = range(1, len(df) + 1)
-df.index.name = "S.No"
 st.dataframe(df)
+
 
 upcoming_projects = pd.DataFrame([
     {"Project": "MedInsights", "Required Skills": "Digital Health", "Start Date": "2025-05-15", "Project Fit Score": 85},
