@@ -82,7 +82,7 @@ elif view == "HR View":
         st.markdown(f"Required Skill: {row['Required Skills']}")
         match = consultants[(consultants["Skills"].str.contains(row["Required Skills"].split(",")[0])) & (consultants["Status"] == "Available")]
         if not match.empty:
-            st.success(f"🟢 Consultant Mapped: {match.iloc[0]['Name']}")
+            st.success(f"🟢 Potential Match: {match.iloc[0]['Name']}")
         else:
             st.error("🔴 No available consultant with required skill. Hiring or Upskilling Needed.")
 
