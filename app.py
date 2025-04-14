@@ -10,16 +10,16 @@ view = st.sidebar.radio("Choose View", ["Main Dashboard", "Consultant View", "Ma
 
 # ------------------ Dummy Data -------------------
 consultants = pd.DataFrame([
-    {"Name": "Snigdha Singh", "Designation": "Project Lead I", "Skills": "Startup Sourcing, Management Consulting", "Current Project": "NetApp", "Availability": "2025-05-10", "OKRs": "Upskill in Tech", "L&D Plan": "AI for Consultants", "Projects": "NetApp, Panasonic, NASSCOM", "Status": "Occupied", "Manager Feedback": "Great on stakeholder engagement", "Client Feedback": "Strong research skills", "Suggestions": "Upcoming Zinnov Academy session on AI"},
-    {"Name": "Aditya Gopalakrishnan", "Designation": "Project Lead I", "Skills": "Reports, Automotive", "Current Project": "MBRDI", "Availability": "2025-04-30", "OKRs": "Productivity, Tech Fluency", "L&D Plan": "Financial Modeling", "Projects": "MBRDI, Flexera, NASSCOM", "Status": "Occupied", "Manager Feedback": "Strong documentation", "Client Feedback": "Dependable and quick", "Suggestions": "Upcoming Google event on Automotive Tech"},
+    {"Name": "Snigdha Singh", "Designation": "Project Lead I", "Skills": "Startup Sourcing, Management Consulting", "Current Project": "Panasonic", "Availability": "2025-05-10", "OKRs": "Upskill in Tech", "L&D Plan": "AI for Consultants", "Projects": "NetApp, Panasonic, NASSCOM", "Status": "Occupied", "Manager Feedback": "Great on stakeholder engagement", "Client Feedback": "Strong research skills", "Suggestions": "Upcoming Zinnov Academy session on AI"},
+    {"Name": "Aditya Gopalakrishnan", "Designation": "Project Lead I", "Skills": "Report, Automotive", "Current Project": "Flexera", "Availability": "2025-04-30", "OKRs": "Productivity, Tech Fluency", "L&D Plan": "Financial Modeling", "Projects": "MBRDI, Flexera, NASSCOM", "Status": "Occupied", "Manager Feedback": "Strong documentation", "Client Feedback": "Dependable and quick", "Suggestions": "Upcoming Google event on Automotive Tech"},
     {"Name": "Chirag Batra", "Designation": "Consultant II", "Skills": "Japanese Clients, Emerging Tech", "Current Project": "Sony", "Availability": "2025-05-20", "OKRs": "Client Engagement", "L&D Plan": "Blockchain Basics", "Projects": "Sumitomo, Marubeni, Sony", "Status": "Occupied", "Manager Feedback": "Cross-border strength", "Client Feedback": "Responsive", "Suggestions": "Upcoming session on GenAI Trends"},
-    {"Name": "Gautham Savio", "Designation": "Senior Associate", "Skills": "Marketing, Events", "Current Project": "Zinnov Awards", "Availability": "2025-04-15", "OKRs": "Digital Reach", "L&D Plan": "Marketing Analytics", "Projects": "Zinnov Awards", "Status": "Occupied", "Manager Feedback": "Great visibility work", "Client Feedback": "N/A", "Suggestions": "Social Media Mastery Workshop"},
+    {"Name": "Gautham Savio", "Designation": "Senior Associate", "Skills": "Marketing, Events", "Current Project": "Zinnov Confluence", "Availability": "2025-04-15", "OKRs": "Digital Reach", "L&D Plan": "Marketing Analytics", "Projects": "Zinnov Awards", "Status": "Occupied", "Manager Feedback": "Great visibility work", "Client Feedback": "N/A", "Suggestions": "Social Media Mastery Workshop"},
     {"Name": "Jane Smith", "Designation": "Consultant I", "Skills": "Cloud, Research", "Current Project": "", "Availability": "Available", "OKRs": "Upskill in GenAI", "L&D Plan": "GenAI + Cloud", "Projects": "AWS Pitch", "Status": "Available", "Manager Feedback": "Quick learner", "Client Feedback": "N/A", "Suggestions": "Cloud AI Bootcamp"},
 ])
 
 upcoming_projects = pd.DataFrame([
     {"Project": "MedInsights", "Required Skills": "Digital Health", "Start Date": "2025-05-15", "Project Fit Score": 85},
-    {"Project": "CarsNova", "Required Skills": "Automotive, Market Sizing", "Start Date": "2025-05-10", "Project Fit Score": 76},
+    {"Project": "CarsNova", "Required Skills": "Automotive, Report", "Start Date": "2025-05-10", "Project Fit Score": 76},
     {"Project": "ZetaBank", "Required Skills": "Fintech, Strategy", "Start Date": "2025-05-20", "Project Fit Score": 90},
 ])
 
@@ -79,7 +79,6 @@ elif view == "HR View":
     for _, row in upcoming_projects.iterrows():
         st.markdown(f"**Project:** {row['Project']}")
         st.markdown(f"Required Skill: {row['Required Skills']}")
-        st.markdown(f"Project Fit Score: {row['Project Fit Score']}")
         match = consultants[(consultants["Skills"].str.contains(row["Required Skills"].split(",")[0])) & (consultants["Status"] == "Available")]
         if not match.empty:
             st.success(f"🟢 Consultant Mapped: {match.iloc[0]['Name']}")
