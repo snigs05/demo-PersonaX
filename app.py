@@ -9,6 +9,10 @@ st.sidebar.title("Navigation")
 view = st.sidebar.radio("Choose View", ["Main Dashboard", "Consultant View", "Manager View", "HR View", "Chatbot"])
 
 # ------------------ Dummy Data -------------------
+df.index = range(1, len(df) + 1)
+df.index.name = "S.No"
+st.dataframe(df)
+
 consultants = pd.DataFrame([
     {"Name": "Snigdha Singh", "Designation": "Project Lead I", "Skills": "Startup Sourcing, Management Consulting", "Current Project": "Panasonic", "Availability": "2025-05-10", "OKRs": "Upskill in Tech", "L&D Plan": "AI for Consultants", "Projects": "NetApp, Panasonic, NASSCOM", "Status": "Occupied", "Manager Feedback": "Great on stakeholder engagement", "Client Feedback": "Strong research skills", "Suggestions": "Upcoming Zinnov Academy session on AI"},
     {"Name": "Aditya Gopalakrishnan", "Designation": "Project Lead I", "Skills": "Report, Automotive", "Current Project": "Flexera", "Availability": "2025-04-30", "OKRs": "Productivity, Tech Fluency", "L&D Plan": "Financial Modeling", "Projects": "MBRDI, Flexera, NASSCOM", "Status": "Occupied", "Manager Feedback": "Strong documentation", "Client Feedback": "Dependable and quick", "Suggestions": "Upcoming Google event on Automotive Tech"},
@@ -16,6 +20,9 @@ consultants = pd.DataFrame([
     {"Name": "Gautham Savio", "Designation": "Senior Associate", "Skills": "Marketing, Events", "Current Project": "Zinnov Confluence", "Availability": "2025-04-15", "OKRs": "Digital Reach", "L&D Plan": "Marketing Analytics", "Projects": "Zinnov Awards", "Status": "Occupied", "Manager Feedback": "Great visibility work", "Client Feedback": "N/A", "Suggestions": "Social Media Mastery Workshop"},
     {"Name": "Jane Smith", "Designation": "Consultant I", "Skills": "Cloud, Research", "Current Project": "", "Availability": "Available", "OKRs": "Upskill in GenAI", "L&D Plan": "GenAI + Cloud", "Projects": "AWS Pitch", "Status": "Available", "Manager Feedback": "Quick learner", "Client Feedback": "N/A", "Suggestions": "Cloud AI Bootcamp"},
 ])
+df.index = range(1, len(df) + 1)
+df.index.name = "S.No"
+st.dataframe(df)
 
 upcoming_projects = pd.DataFrame([
     {"Project": "MedInsights", "Required Skills": "Digital Health", "Start Date": "2025-05-15", "Project Fit Score": 85},
