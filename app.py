@@ -128,5 +128,4 @@ elif view == "Chatbot":
 
 
 # --- Footer ---
-st.markdown("---")
 st.markdown("Crafted with ❤️ by PersonaX")
