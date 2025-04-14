@@ -20,7 +20,7 @@ consultants = pd.DataFrame([
 upcoming_projects = pd.DataFrame([
     {"Project": "MedInsights", "Required Skills": "Digital Health", "Start Date": "2025-05-15", "Project Fit Score": 85},
     {"Project": "CarsNova", "Required Skills": "Automotive, Report", "Start Date": "2025-05-10", "Project Fit Score": 76},
-    {"Project": "ZetaBank", "Required Skills": "Fintech, Strategy", "Start Date": "2025-05-20", "Project Fit Score": 90},
+    {"Project": "ZetaBank", "Required Skills": "Cloud, Research", "Start Date": "2025-05-20", "Project Fit Score": 90},
 ])
 
 # ------------------ Main Dashboard -------------------
