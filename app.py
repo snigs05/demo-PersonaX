@@ -19,7 +19,7 @@ consultants = pd.DataFrame([
 
 upcoming_projects = pd.DataFrame([
     {"Project": "MedInsights", "Required Skills": "Digital Health", "Start Date": "2025-05-15", "Project Fit Score": 85},
-    {"Project": "RetailNova", "Required Skills": "Retail, Market Sizing", "Start Date": "2025-05-10", "Project Fit Score": 76},
+    {"Project": "CarsNova", "Required Skills": "Automotive, Market Sizing", "Start Date": "2025-05-10", "Project Fit Score": 76},
     {"Project": "ZetaBank", "Required Skills": "Fintech, Strategy", "Start Date": "2025-05-20", "Project Fit Score": 90},
 ])
 
@@ -84,7 +84,7 @@ elif view == "HR View":
         if not match.empty:
             st.success(f"🟢 Consultant Mapped: {match.iloc[0]['Name']}")
         else:
-            st.error("🔴 No available consultant with required skill. Hiring Needed.")
+            st.error("🔴 No available consultant with required skill. Hiring or Upskilling Needed.")
 
 # ------------------ Chatbot -------------------
 elif view == "Chatbot":
