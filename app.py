@@ -6,7 +6,7 @@ from datetime import datetime
 
 # ------------------ Sidebar View Selector -------------------
 st.sidebar.title("Navigation")
-view = st.sidebar.radio("Choose View", ["Main Dashboard", "Consultant View", "Manager View", "HR View", "Chatbot"])
+view = st.sidebar.radio("Choose View", ["Main Dashboard", "Consultant View", "Project Allocation", "TL View", "Chatbot"])
 
 # ------------------ Dummy Data -------------------
 
@@ -55,9 +55,9 @@ elif view == "Consultant View":
     st.warning(f"Suggestions: {person['Suggestions']}")
     st.markdown(f"**Project History:** {person['Projects']}")
 
-# ------------------ Manager View -------------------
-elif view == "Manager View":
-    st.title("Manager View")
+# ------------------ Project Allocation -------------------
+elif view == "Project Allocation":
+    st.title("Project Allocation")
 
     st.subheader("Team Members & Status")
     consultants["AI Project Score"] = [82, 88, 80, 79, 85]
@@ -69,9 +69,9 @@ elif view == "Manager View":
     upcoming = upcoming.sort_values(by="Availability Date")
     st.table(upcoming[["Name", "Availability", "Current Project"]].head(5))
 
-# ------------------ HR View -------------------
-elif view == "HR View":
-    st.title("HR View")
+# ------------------ TL View -------------------
+elif view == "TL View":
+    st.title("TL View")
 
     st.subheader("Upcoming Projects & Skill Needs")
     st.dataframe(upcoming_projects)
