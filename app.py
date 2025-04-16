@@ -87,65 +87,19 @@ elif view == "TL View":
             st.error("🔴 No available consultant with required skill. Hiring or Upskilling Needed.")
 
 # ------------------ Chatbot -------------------
-elif view_selection == "Chatbot":
+elif view == "Chatbot":
     st.title("PersonaX Chatbot")
+    question = st.text_input("Ask something like: Who is available next week?")
 
-    user_input = st.text_input("Ask me something (e.g., What skills does Snigdha Singh have?)")
-
-    if user_input:
-        response = ""
-
-        # Normalize input
-        input_lower = user_input.lower()
-
-        if "available" in input_lower:
-            available = consultants_df[~consultants_df["Current Project"]]
+    if question:
+        if "available" in question.lower():
+            available = consultants[consultants["Status"] == "Available"]
             names = ", ".join(available["Name"].tolist())
-            response = f"Available consultants: {names}" if names else "No one is immediately available."
-
-        elif "skills" in input_lower:
-            for name in consultants_df["Name"]:
-                if name.lower() in input_lower:
-                    skills = consultants_df[consultants_df["Name"] == name]["Skills"].values[0]
-                    response = f"{name} has skills in: {skills}"
-                    break
-            if not response:
-                response = "Please specify a consultant name."
-
-        elif "experience in" in input_lower or "who has experience" in input_lower:
-            keywords = input_lower.split("experience in")[-1].strip()
-            matched = consultants_df[consultants_df["Skills"].str.lower().str.contains(keywords)]
-            if not matched.empty:
-                names = ", ".join(matched["Name"].tolist())
-                response = f"Consultants with experience in {keywords}: {names}"
-            else:
-                response = f"No consultants found with experience in {keywords}."
-
-        elif "suggest" in input_lower and "l&d" in input_lower:
-            for name in consultants_df["Name"]:
-                if name.lower() in input_lower:
-                    suggestion = consultants_df[consultants_df["Name"] == name]["Suggested L&D Session"].values[0]
-                    response = f"Suggested L&D for {name}: {suggestion}"
-                    break
-            if not response:
-                response = "Please specify the consultant you want L&D suggestions for."
-
-        elif "when is" in input_lower and "available" in input_lower:
-            for name in consultants_df["Name"]:
-                if name.lower() in input_lower:
-                    availability = consultants_df[consultants_df["Name"] == name]["Availability"].values[0]
-                    response = f"{name} is {availability}."
-                    break
-            if not response:
-                response = "Please specify a name to check availability."
-
+            st.write(f"Available consultants: {names}")
+        elif "skills" in question.lower():
+            st.write("We track skills like Strategy, Retail, Fintech, Digital Health, SaaS, etc.")
         else:
-            response = "I'm still learning. Try asking about consultant skills, availability, or L&D suggestions."
-
-        st.markdown("### Response")
-        st.success(response)
-
-
+            st.write("I'm still learning! Try asking about consultant availability or skillsets.")
 
 
 # --- Footer ---
