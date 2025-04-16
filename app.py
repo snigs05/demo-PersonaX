@@ -86,7 +86,7 @@ elif view == "TL View":
         else:
             st.error("🔴 No available consultant with required skill. Hiring or Upskilling Needed.")
 
-# ------------------ Chatbot View -------------------
+# ------------------ Chatbot -------------------
 elif view_selection == "Chatbot":
     st.title("PersonaX Chatbot")
 
